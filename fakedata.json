@@ -1,0 +1,99 @@
+[
+    {
+        "name": "Darth Vader Lightsaber",
+        "picture": "https://example.com/darth_vader_lightsaber.jpg",
+        "price": 39.99,
+        "rating": 4.8,
+         "subCategory": "Star Wars",
+        "description": "Unleash the power of the Dark Side with this iconic Darth Vader Lightsaber. With its realistic design and red blade, you can channel the Sith Lord's formidable presence and engage in epic duels."
+    },
+    {
+        "name": "Yoda Action Figure",
+        "picture": "https://example.com/yoda_action_figure.jpg",
+        "price": 29.99,
+        "rating": 4.6,
+         "subCategory": "Star Wars",
+        "description": "Master the Force with this highly detailed Yoda Action Figure. Crafted to capture the wise Jedi Master's likeness, this figure comes with a lightsaber and various interchangeable accessories for dynamic poses."
+    },
+    {
+        "name": "Millennium Falcon LEGO Set",
+        "picture": "https://example.com/millennium_falcon_lego.jpg",
+        "price": 89.99,
+        "rating": 4.9,
+         "subCategory": "Star Wars",
+        "description": "Embark on intergalactic adventures with the Millennium Falcon LEGO Set. Build and pilot the fastest hunk of junk in the galaxy, complete with intricate details, removable panels, and mini-figures of Han Solo, Chewbacca, and more."
+    },
+    {
+        "name": "Iron Man Mark XLIII",
+        "picture": "https://example.com/iron_man_mark_xliii.jpg",
+        "price": 29.99,
+        "rating": 4.5,
+         "subCategory": "marvel-universe",
+        "description": "Gear up as Iron Man with the Mark XLIII action figure. This highly articulated figure features stunning armor details and includes interchangeable accessories, allowing you to recreate Tony Stark's iconic superhero moments."
+    },
+    {
+        "name": "Captain America Shield",
+        "picture": "https://example.com/captain_america_shield.jpg",
+        "price": 19.99,
+        "rating": 4.2,
+         "subCategory": "marvel-universe",
+        "description": "Embrace the spirit of Captain America with his iconic shield. Made from vibranium, this shield replica is a must-have for any Marvel fan. Whether displayed on your shelf or used in imaginative play, it represents the symbol of freedom and justice."
+    },
+    {
+        "name": "Spider-Man Web Shooter",
+        "picture": "https://example.com/spider_man_web_shooter.jpg",
+        "price": 24.99,
+        "rating": 4.7,
+         "subCategory": "marvel-universe",
+        "description": "Become everyone's friendly neighborhood Spider-Man with the Web Shooter toy. This wrist-mounted device shoots stretchable web projectiles, allowing you to swing into action and defeat villains, just like Peter Parker himself."
+    },
+    {
+        "name": "Batman Action Figure",
+        "picture": "https://example.com/batman_action_figure.jpg",
+        "price": 24.99,
+        "rating": 4.5,
+         "subCategory": "dc-universe",
+        "description": "Join the Dark Knight's crusade against crime with this highly detailed Batman action figure. Featuring his iconic Batsuit and an array of gadgets, this figure allows you to recreate Gotham City's most thrilling battles."
+      },
+      {
+        "name": "Wonder Woman Sword and Shield Set",
+        "picture": "https://example.com/wonder_woman_sword_shield.jpg",
+        "price": 19.99,
+        "rating": 4.2,
+         "subCategory": "dc-universe",
+        "description": "Embrace your inner Amazonian warrior with this Wonder Woman Sword and Shield set. Modeled after Diana Prince's legendary weapons, this set is perfect for cosplay or display, empowering you to defend truth and justice."
+      },
+      {
+        "name": "Superman Flying Action Figure",
+        "picture": "https://example.com/superman_flying_figure.jpg",
+        "price": 29.99,
+        "rating": 4.7,
+         "subCategory": "dc-universe",
+        "description": "Soar through the skies with the Superman Flying Action Figure. With a specially designed base and adjustable wires, you can pose Superman in mid-flight, showcasing his superhuman strength and inspiring heroism."
+      },
+      {
+      "name": "Optimus Prime Action Figure",
+      "picture": "https://example.com/optimus_prime_action_figure.jpg",
+      "price": 39.99,
+      "rating": 4.8,
+       "subCategory": "transformers-universe",
+      "description": "Unleash the power of the Autobots with this Optimus Prime action figure. With intricate detailing and transformable features, this figure allows you to switch between robot and truck modes, recreating the epic battles of the Transformers universe."
+    },
+    {
+      "name": "Bumblebee Deluxe Vehicle",
+      "picture": "https://example.com/bumblebee_deluxe_vehicle.jpg",
+      "price": 29.99,
+      "rating": 4.6,
+       "subCategory": "transformers-universe",
+      "description": "Join the adventures of Bumblebee with this deluxe vehicle toy. This highly detailed figure can transform into a sleek sports car, and it comes with additional accessories to enhance playability and imaginative storytelling."
+    },
+    {
+      "name": "Megatron Leader Class Figure",
+      "picture": "https://example.com/megatron_leader_class_figure.jpg",
+      "price": 49.99,
+      "rating": 4.9,
+       "subCategory": "transformers-universe",
+      "description": "Unleash the might of the Decepticons with this Megatron Leader Class figure. This large-scale figure features incredible articulation, striking design, and transformable abilities, allowing you to recreate the battles between Megatron and the Autobots."
+    }
+
+]
