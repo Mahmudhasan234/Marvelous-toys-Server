@@ -51,14 +51,16 @@ async function run() {
             res.send(result);
         })
 
-        // get data by sub-category
+
+        // get data by id
 
 
-        // app.get('/alltoys', async (req, res) => {
-      
-        //     const result = await toysCollection.find().toArray();
-        //     res.send(result)
-        // })
+        app.get('/alltoys/:id', async (req, res) => {
+      const id = req.params.id
+      const query = new ObjectId(id)
+            const result = await toysCollection.find(query).toArray();
+            res.send(result)
+        })
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
