@@ -1,26 +1,17 @@
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config()
-const port = process.env.PORT || 5000;
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
-
-
+const port = process.env.PORT || 5000;
 
 // middleware
 
-app.use(express.json());
 app.use(cors());
-
-// mongodb start
-
-// nuNNOaSFZr1NzD2q
-//marvelous_toy_admin 
+app.use(express.json());
 
 
-
-const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0.vgqrech.mongodb.net/?retryWrites=true&w=majority"`
+const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0.vgqrech.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -34,32 +25,69 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        client.connect();
+        await client.connect();
 
-        const toysCollection = client.db('marvelousDB').collection('toys')
+        const toysCollection = client.db('marvelousDB').collection('toys');
 
-        // get all the data from DB for initial datas
 
+        // get data for sub category
         app.get('/alltoys', async (req, res) => {
             console.log(req.query)
             let query = {}
-            if(req.query.subCategory){
-                query = {subCategory: req.query.subCategory}
+            if (req.query.subCategory) {
+                query = { subCategory: req.query.subCategory }
             }
             const result = await toysCollection.find(query).toArray();
 
             res.send(result);
         })
 
-
-        // get data by id
-
+        // get data by id 
 
         app.get('/alltoys/:id', async (req, res) => {
-      const id = req.params.id
-      const query = new ObjectId(id)
+            const id = req.params.id
+            const query = new ObjectId(id)
             const result = await toysCollection.find(query).toArray();
             res.send(result)
+        })
+        // get data for showing data for individual user 
+        app.get('/alltoys', async (req, res) => {
+
+            let query = {};
+            if (req.query.email) {
+                query = { email: req.query.email }
+            }
+            const result = await toysCollection.find(query).toArray();
+            res.send(result);
+        })
+
+        app.post('/alltoys', async (req, res) => {
+
+            const booking = req.body;
+            console.log(booking)
+            const result = await toysCollection.insertOne(booking)
+            res.send(result);
+        })
+
+        app.patch('/bookings/:id', async (req, res) => {
+            const id = req.params.id;
+            const updatebooking = req.body;
+            const filter = { _id: new ObjectId(id) }
+            const updateDoc = {
+                $set: {
+                    status: updatebooking.status
+                },
+            };
+            const result = await bookingCollection.updateOne(filter, updateDoc)
+            res.send(result);
+        })
+
+        app.delete('/bookings/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await bookingCollection.deleteOne(query)
+            res.send(result);
+
         })
 
         // Send a ping to confirm a successful connection
@@ -67,18 +95,15 @@ async function run() {
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
         // Ensures that the client will close when you finish/error
-
+        // await client.close();
     }
 }
 run().catch(console.dir);
 
 
 
-
-
 app.get('/', (req, res) => {
-
-    res.send('welcome to my marvelous toys server')
+    res.send('marvelous toys server')
 })
 
-app.listen(port);
+app.listen(port)
