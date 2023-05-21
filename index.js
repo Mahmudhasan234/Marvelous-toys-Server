@@ -34,9 +34,8 @@ async function run() {
         app.get('/alltoys', async (req, res) => {
             console.log(req.query)
             let query = {}
-            if (req.query.subCategory) {
-                query = { subCategory: req.query.subCategory }
-            }
+            req.query && req.query.subCategory ? query ={ subCategory: req.query.subCategory}: query = {email: req.query.email}
+            
             const result = await toysCollection.find(query).toArray();
 
             res.send(result);
@@ -46,20 +45,12 @@ async function run() {
 
         app.get('/alltoys/:id', async (req, res) => {
             const id = req.params.id
-            const query = new ObjectId(id)
+            const query = { _id: new ObjectId(id) }
             const result = await toysCollection.find(query).toArray();
             res.send(result)
         })
         // get data for showing data for individual user 
-        app.get('/alltoys', async (req, res) => {
-
-            let query = {};
-            if (req.query.email) {
-                query = { email: req.query.email }
-            }
-            const result = await toysCollection.find(query).toArray();
-            res.send(result);
-        })
+      
 
         app.post('/alltoys', async (req, res) => {
 
@@ -82,14 +73,12 @@ async function run() {
             res.send(result);
         })
 
-        app.delete('/bookings/:id', async (req, res) => {
-            const id = req.params.id;
+        app.delete('/alltoys/:id', async (req, res) => {
+            const id = req.params.id
             const query = { _id: new ObjectId(id) }
-            const result = await bookingCollection.deleteOne(query)
-            res.send(result);
-
+            const result = await toysCollection.deleteOne(query);
+            res.send(result)
         })
-
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
