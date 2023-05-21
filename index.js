@@ -25,7 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        client.connect();
 
         const toysCollection = client.db('marvelousDB').collection('toys');
 
@@ -46,7 +46,7 @@ async function run() {
         app.get('/alltoys/:id', async (req, res) => {
             const id = req.params.id
             const query = { _id: new ObjectId(id) }
-            const result = await toysCollection.find(query).toArray();
+            const result = await toysCollection.findOne(query);
             res.send(result)
         })
         // get data for showing data for individual user 
@@ -60,16 +60,18 @@ async function run() {
             res.send(result);
         })
 
-        app.patch('/bookings/:id', async (req, res) => {
+        app.patch('/alltoys/:id', async (req, res) => {
             const id = req.params.id;
-            const updatebooking = req.body;
+            const updatedetails = req.body;
             const filter = { _id: new ObjectId(id) }
-            const updateDoc = {
+            const updateDet = {
                 $set: {
-                    status: updatebooking.status
+                    price: updatedetails.price,
+                    quantity: updatedetails.quantity,
+                    description: updatedetails.description
                 },
             };
-            const result = await bookingCollection.updateOne(filter, updateDoc)
+            const result = await toysCollection.updateOne(filter, updateDet)
             res.send(result);
         })
 
